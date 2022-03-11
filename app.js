@@ -65,7 +65,7 @@ senha.addEventListener('keyup', () => {
 // CAMPO CONFIRM SENHA:
 
 // se os caracteres do valor de senha forem diferentes dos caracteres do valor da confirmação de senha ele cai no seu "if" informando
-// que sua condição é falsa e ela não passará pelo "if" do envio de dados pro banco Local Storage
+// que sua condição é falsa, alterando sua cor para vermelho e ela não passará pelo "else" que mudará a cor do label para verde
 
 confirmSenha.addEventListener('keyup', () => {
     if(senha.value != confirmSenha.value){
@@ -112,8 +112,10 @@ function cadastrar() {   // assim que clicamos bate aqui, todas originalmene sã
         msgError.setAttribute('style', 'display: none')
 
         setTimeout(()=> {
+            alert('Cadastrado com Sucesso!')
             window.location.href = 'homepage.html'
         }, 3000)
+
 
     } else {
         msgError.setAttribute('style', 'display: block')
@@ -159,6 +161,12 @@ function entrar () {
 
     if(usuario.value == userValid.user && senha.value == userValid.senha) {
         window.location.href = 'logado.html'
+
+        let token = Math.random().toString(16).substr(2) + Math.random().toString(16).substr(2)
+        localStorage.setItem('token', token)
+
+        localStorage.setItem('userLogado', JSON.stringify(userValid))
+
     } else {
         usuario.setAttribute('style', 'border-color: red')
         userLabel.setAttribute('style', 'color:red')
@@ -168,5 +176,4 @@ function entrar () {
         msgError.setAttribute('style', 'display: block')
         usuario.focus()
     }
-
 }
