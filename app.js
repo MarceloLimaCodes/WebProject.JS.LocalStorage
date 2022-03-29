@@ -18,12 +18,13 @@ let msgError = document.querySelector('#msgError')
 let msgSucess = document.querySelector('#msgSucess')
 
 // Campo com evento que muda a cor do label e input quando atinge uma quantidade específica de caracteres.
-// É repetida usando a variável usuario, email e senha.
+// É repetida usando a variável usuario, email, senha e confirmar senha.
+
 
 usuario.addEventListener('keyup', () => {
     if(usuario.value.length <= 4){
         labelUsuario.setAttribute('style', 'color: red')
-        labelUsuario.innerHTML = 'Usuário *insira no minimo 5 caracteres'
+        labelUsuario.innerHTML = 'Usuário (Insira no minimo 5 caracteres)'
         usuario.setAttribute('style', 'border-color: red')
         validUsuario = false
     } else {
@@ -32,12 +33,19 @@ usuario.addEventListener('keyup', () => {
         usuario.setAttribute('style', 'border-color: green')
         validUsuario = true
     }
+
+    if(usuario.value <= 1){
+        labelUsuario.setAttribute('style', 'color: red')
+        labelUsuario.innerHTML = 'Usuário (Preencha  o espaço corretamente)'
+        usuario.setAttribute('style', 'border-color: red')
+        validUsuario = false
+    }
 })
 
 email.addEventListener('keyup', () => {
     if(email.value.length <= 4){
         labelMail.setAttribute('style', 'color: red')
-        labelMail.innerHTML = 'E-mail *insira no minimo 5 caracteres'
+        labelMail.innerHTML = 'E-mail (Insira no minimo 5 caracteres)'
         email.setAttribute('style', 'border-color: red')
         validMail = false
     } else {
@@ -46,12 +54,19 @@ email.addEventListener('keyup', () => {
         email.setAttribute('style', 'border-color: green')
         validMail = true
     }
+
+    if(email.value <= 1){
+        labelMail.setAttribute('style', 'color: red')
+        labelMail.innerHTML = 'E-mail (Preencha o espaço corretamente)'
+        email.setAttribute('style', 'border-color: red')
+        validEmail = false
+    }
 })
 
 senha.addEventListener('keyup', () => {
     if(senha.value.length <= 4){
         labelSenha.setAttribute('style', 'color: red')
-        labelSenha.innerHTML = 'Senha *insira no minimo 5 caracteres'
+        labelSenha.innerHTML = 'Senha (Insira no minimo 5 caracteres)'
         senha.setAttribute('style', 'border-color: red')
         validSenha = false
     } else {
@@ -59,6 +74,13 @@ senha.addEventListener('keyup', () => {
         labelSenha.innerHTML = 'Senha'
         senha.setAttribute('style', 'border-color: green')
         validSenha = true
+    }
+
+    if(senha.value <= 1){
+        labelSenha.setAttribute('style', 'color: red')
+        labelSenha.innerHTML = 'Senha (Preencha o espaço corretamente)'
+        senha.setAttribute('style', 'border-color: red')
+        validSenha = false
     }
 })
 
@@ -78,6 +100,13 @@ confirmSenha.addEventListener('keyup', () => {
         labelConfirmSenha.innerHTML = 'Confirmar Senha'
         confirmSenha.setAttribute('style', 'border-color: green')
         validConfirmSenha = true
+    }
+    
+    if(confirmSenha.value <= 1){
+        labelConfirmSenha.setAttribute('style', 'color: red')
+        labelConfirmSenha.innerHTML = 'Confirmar Senha (Preencha o espaço corretamente)'
+        confirmSenha.setAttribute('style', 'border-color: red')
+        validConfirmSenha = false
     }
 })
 
@@ -170,8 +199,10 @@ function entrar () {
     } else {
         usuario.setAttribute('style', 'border-color: red')
         userLabel.setAttribute('style', 'color:red')
+        userLabel.innerHTML = 'Usuário (Preencha o campo corretamente)'
         senha.setAttribute('style', 'border-color: red')
         senhaLabel.setAttribute('style', 'color: red')
+        senhaLabel.innerHTML = 'Senha (Preencha o campo corretamente)'
         msgError.innerHTML = 'Usuário e senha não conferem'
         msgError.setAttribute('style', 'display: block')
         usuario.focus()
