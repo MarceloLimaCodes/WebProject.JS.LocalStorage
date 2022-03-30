@@ -17,9 +17,34 @@ let validConfirmSenha = false
 let msgError = document.querySelector('#msgError')
 let msgSucess = document.querySelector('#msgSucess')
 
+let btn = document.querySelector('#verSenha')
+let btnConfirm = document.querySelector('#verConfirmSenha')
+
+// BOTÃO VER SENHA
+btn.addEventListener('click', () => {
+    let inputSenha = document.querySelector('#senha')
+
+    if(inputSenha.getAttribute('type') == 'password') {
+        inputSenha.setAttribute('type', 'text')
+    } else {
+        inputSenha.setAttribute('type', 'password')
+    }
+})
+
+//BOTÃO VER CONFIRMAR SENHA
+btnConfirm.addEventListener('click', () => {
+    let inputConfirmSenha = document.querySelector('#confirmSenha')
+
+    if(inputConfirmSenha.getAttribute('type') == 'password') {
+        inputConfirmSenha.setAttribute('type', 'text')
+    } else {
+        inputConfirmSenha.setAttribute('type', 'password')
+    }
+})
+
+
 // Campo com evento que muda a cor do label e input quando atinge uma quantidade específica de caracteres.
 // É repetida usando a variável usuario, email, senha e confirmar senha.
-
 
 usuario.addEventListener('keyup', () => {
     if(usuario.value.length <= 4){
@@ -69,11 +94,13 @@ senha.addEventListener('keyup', () => {
         labelSenha.innerHTML = 'Senha (Insira no minimo 5 caracteres)'
         senha.setAttribute('style', 'border-color: red')
         validSenha = false
+        btn.setAttribute('style', 'color: red')
     } else {
         labelSenha.setAttribute('style', 'color: green')
         labelSenha.innerHTML = 'Senha'
         senha.setAttribute('style', 'border-color: green')
         validSenha = true
+        btn.setAttribute('style', 'color: green')
     }
 
     if(senha.value <= 1){
@@ -81,6 +108,7 @@ senha.addEventListener('keyup', () => {
         labelSenha.innerHTML = 'Senha (Preencha o espaço corretamente)'
         senha.setAttribute('style', 'border-color: red')
         validSenha = false
+        btn.setAttribute('style', 'color: red')
     }
 })
 
@@ -95,11 +123,13 @@ confirmSenha.addEventListener('keyup', () => {
         labelConfirmSenha.innerHTML = 'Senhas não conferem'
         confirmSenha.setAttribute('style', 'border-color: red')
         validConfirmSenha = false
+        btnConfirm.setAttribute('style', 'color: red')
     } else {
         labelConfirmSenha.setAttribute('style', 'color: green')
         labelConfirmSenha.innerHTML = 'Confirmar Senha'
         confirmSenha.setAttribute('style', 'border-color: green')
         validConfirmSenha = true
+        btnConfirm.setAttribute('style', 'color: green')
     }
     
     if(confirmSenha.value <= 1){
@@ -107,6 +137,7 @@ confirmSenha.addEventListener('keyup', () => {
         labelConfirmSenha.innerHTML = 'Confirmar Senha (Preencha o espaço corretamente)'
         confirmSenha.setAttribute('style', 'border-color: red')
         validConfirmSenha = false
+        btnConfirm.setAttribute('style', 'color: red')
     }
 })
 

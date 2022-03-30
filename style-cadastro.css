@@ -24,6 +24,7 @@ body {
     padding: 30px;
     border-radius: 4%;
     box-shadow: 3px 3px 1px 0px #00000060;
+    width: 400px;
 
 }
 
@@ -92,29 +93,6 @@ button:hover {
 .justify-center {
     display: flex;
     justify-content: center;
-}
-
-hr {
-    margin-left: 20%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    width: 60%;
-}
-
-p {
-    font-size: 14pt;
-    text-align: center;
-}
-
-a {
-    color: #7a3077;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all .3s ease-out;
-}
-
-a:hover {
-    color: #272262;
 }
 
 #msgError {
