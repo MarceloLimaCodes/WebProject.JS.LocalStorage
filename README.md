@@ -3,4 +3,4 @@ Projeto web usando HTML, CSS e JavaScript com cadastro armazenado e autenticado 
 
 Contém:
 --Autenticação através de token
---Tela de loguin e cadastro
+--Tela de login e cadastro
